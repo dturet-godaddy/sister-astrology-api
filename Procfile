@@ -1,1 +1,1 @@
-web: gunicorn astro.wsgi
+web: gunicorn astro.wsgi --log-file -
