@@ -7,8 +7,10 @@ dj-database-url==0.4.1
 django-extensions==1.6.7
 djangorestframework==3.3.3
 ecdsa==0.13
+flatlib==0.2.1
 gnureadline==6.3.3
 gunicorn==19.6.0
+ipdb==0.10.1
 ipython==4.2.0
 ipython-genutils==0.1.0
 paramiko==1.17.0
@@ -18,6 +20,7 @@ pickleshare==0.7.2
 psycopg2==2.6.1
 ptyprocess==0.5.1
 pycrypto==2.6.1
+pyswisseph==2.0.0.post2
 simplegeneric==0.8.1
 six==1.10.0
 traitlets==4.2.1
