@@ -27,7 +27,7 @@ class ChartView(APIView):
             'mercury': (chart.getObject(const.MERCURY).sign).lower(),
             'venus': (chart.getObject(const.VENUS).sign).lower(),
             'mars': (chart.getObject(const.MARS).sign).lower(),
-            'ascendant': (chart.getObject(const.ASC).sign).lower(),
+            'ascendant': (chart.getAngle(const.ASC).sign).lower()
         }
         return Response(content)
 
