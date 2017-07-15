@@ -24,12 +24,13 @@ class ChartView(APIView):
 
     def get_chart(self, birthdayString, birthTimeString, offsetString, geo_coordinates):
         # date = Datetime('1989/07/30', '00:05', '-05:00')
-        date = Datetime(birthdayString, birthTimeString, offsetString)
         # pos = GeoPos(30.2643, -97.7139)
+        date = Datetime(birthdayString, birthTimeString, offsetString)
         pos = GeoPos(geo_coordinates['lat'], geo_coordinates['lng'])
         return Chart(date, pos)
 
     def get_sign(self, chart, position):
+
         return str(chart.getObject(position).sign).lower()
 
     def get_angle(self, chart, obj):
@@ -60,6 +61,8 @@ class ChartView(APIView):
             'mercury': self.get_sign(chart, const.MERCURY),
             'venus': self.get_sign(chart, const.VENUS),
             'mars': self.get_sign(chart, const.MARS),
+            'jupiter': self.get_sign(chart, const.JUPITER),
+            'saturn': self.get_sign(chart, const.SATURN),
             'ascendant': self.get_angle(chart, const.ASC)
         }
         return content
@@ -75,7 +78,6 @@ class ChartView(APIView):
             hh, mm = divmod(off, timedelta(hours=1))
             assert not mm % timedelta(minutes=1), "whole minute"
             mm //= timedelta(minutes=1)
-            print("%s%02d:%02d" % (sign, hh, mm))
             return "%s%02d:%02d" % (sign, hh, mm)
 
     def get_offset(self, datetime, geo_coordinates):
